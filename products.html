@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Pro - Danh Sách Thú Cưng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                <i class="fa-solid fa-paw text-warning"></i> PetShop <span class="text-warning">Pro</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house me-1"></i> Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html"><i class="fa-solid fa-store me-1"></i> Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html"><i class="fa-solid fa-screwdriver-wrench me-1"></i> Quản Lý (CRUD)</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="cart.html" class="btn btn-warning text-white fw-bold position-relative px-3 rounded-pill shadow-sm text-decoration-none">
+                        <i class="fa-solid fa-cart-shopping me-1"></i> Giỏ Hàng
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toast Thông Báo -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold" id="toast-message">Đã thêm vào giỏ hàng!</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Nội dung Trang Sản Phẩm -->
+    <div class="container my-4 content-section">
+        <div class="row align-items-center mb-4 g-3">
+            <div class="col-lg-4">
+                <h2 class="fw-bold m-0"><i class="fa-solid fa-store text-warning me-2"></i> Cửa Hàng Thú Cưng</h2>
+            </div>
+            <div class="col-md-7 col-lg-5">
+                <div class="input-group shadow-sm">
+                    <input type="text" id="search-input" class="form-control border-end-0 rounded-start-pill ps-3" placeholder="Tìm tên thú cưng hoặc danh mục...">
+                    <span class="input-group-text bg-white border-start-0 rounded-end-pill text-muted pe-3"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-3">
+                <select id="sort-select" class="form-select rounded-pill shadow-sm fw-medium">
+                    <option value="default">Sắp xếp: Mặc định</option>
+                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                    <option value="name-asc">Tên: A - Z</option>
+                </select>
+            </div>
+        </div>
+
+
+
+
+        <!-- Bộ lọc danh mục -->
+        <div class="btn-group mb-4 flex-wrap gap-2 shadow-sm p-2 bg-white rounded-4" role="group" id="category-filters" style="border: 1px solid #dee2e6;">
+            <button type="button" class="btn btn-dark active rounded-pill px-4" data-cat="all">Tất Cả</button>
+            <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-cat="Cho">Chó Cảnh</button>
+            <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-cat="Meo">Mèo Cảnh</button>
+            <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-cat="Hamster">Hamster</button>
+            <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-cat="Chim">Chim Cảnh</button>
+            <button type="button" class="btn btn-outline-dark rounded-pill px-4" data-cat="Ca">Cá Cảnh</button>
+        </div>
+        <!-- Danh sách sản phẩm -->
+        <div class="row" id="shop-products"></div>
+    </div>
+
+
+
+
+
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0 fw-medium">© 2026 <strong>PetShop Pro</strong> - Hệ thống Cửa hàng Thú cưng Uy tín.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

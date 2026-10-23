@@ -1,0 +1,75 @@
+body {
+    background-color: #f4f7f6;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.content-section {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.carousel-item {
+    height: 420px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-slide-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80');
+}
+
+.hero-slide-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&q=80');
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(6px);
+}
+
+.category-box {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+.product-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.product-img-wrapper {
+    overflow: hidden;
+    height: 210px;
+}
+
+.product-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-color: #ffc107;
+}
